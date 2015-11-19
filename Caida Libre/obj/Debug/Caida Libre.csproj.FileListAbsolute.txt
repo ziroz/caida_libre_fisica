@@ -1,0 +1,9 @@
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Caida_Libre.exe.config
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Caida_Libre.exe
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Caida_Libre.pdb
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida_Libre.Properties.Resources.resources
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida Libre.csproj.GenerateResource.Cache
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida_Libre.exe
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida_Libre.pdb
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Interop.ActiveXScript.dll
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Interop.ActiveXScript.xml
