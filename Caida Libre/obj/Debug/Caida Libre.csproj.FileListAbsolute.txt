@@ -7,3 +7,5 @@ C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\
 C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida_Libre.pdb
 C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Interop.ActiveXScript.dll
 C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Interop.ActiveXScript.xml
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida Libre.csprojResolveAssemblyReference.cache
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida_Libre.Principal.resources
