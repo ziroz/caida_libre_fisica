@@ -20,6 +20,9 @@ namespace Caida_Libre.Operaciones
         public decimal? Tiempo { get; set; }
         public decimal? Altura { get; set; }
 
+        public VelocidadFinal(decimal Vo, decimal? t):this(Vo, t, null)
+        { }
+
         public VelocidadFinal(decimal Vo, decimal? t, decimal? h)
         {
             this.VelocidadInicial = Vo;

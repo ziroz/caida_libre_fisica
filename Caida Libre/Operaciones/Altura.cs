@@ -16,17 +16,17 @@ namespace Caida_Libre.Operaciones
 
 
         public decimal VelocidadInicial { get; set; }
-        public decimal VelocidadFinal { get; set; }
+        public decimal? VelocidadFinal { get; set; }
 
         public decimal? Tiempo { get; set; }
         public decimal Gravedad { get; set; }
 
         public Altura(decimal Vo, decimal? t)
-            : this(Vo, t, 0)
+            : this(Vo, t, null)
         {
         }
 
-        public Altura(decimal Vo, decimal? t, decimal Vf)
+        public Altura(decimal Vo, decimal? t, decimal? Vf)
         {
             this.VelocidadFinal = Vf;
             this.VelocidadInicial = Vo;
@@ -40,12 +40,23 @@ namespace Caida_Libre.Operaciones
         {
             //si velocidad inicial es diferente de 0 es porque se lanzo
             string operacion ="";
+
             if (this.VelocidadInicial == 0)
             {
+                if (!this.Tiempo.HasValue)
+                {
+                    this.Tiempo = new Tiempo(this.VelocidadInicial, this.VelocidadFinal.Value).Resultado;
+                }
+
                 operacion = Formula1.FormatoExpresion(this.VelocidadInicial, this.Tiempo, this.Gravedad);
             }
             else
             {
+                if (!this.VelocidadFinal.HasValue)
+                {
+                    this.VelocidadFinal = new VelocidadFinal(this.VelocidadInicial, this.Tiempo).Resultado;
+                }
+
                 operacion = Formula2.FormatoExpresion(this.VelocidadFinal, this.VelocidadInicial, this.Gravedad);
             }
 

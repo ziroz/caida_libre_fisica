@@ -8,6 +8,6 @@ namespace Caida_Libre.Operaciones
 {
     public class Constantes
     {
-        public const decimal GRAVEDAD = 9.8M;
+        public const decimal GRAVEDAD = 9.81M;
     }
 }
