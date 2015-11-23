@@ -46,5 +46,19 @@ namespace Caida_Libre.Operaciones
         {
             return System.Convert.ToDecimal(valor);
         }
+
+        public static bool TryParse(string valor, out decimal variable){
+
+            if (string.IsNullOrEmpty(valor))
+            {
+                variable = 0;
+                return false;
+            }
+
+            valor = valor.Replace(".", ",");
+
+            return decimal.TryParse(valor, out variable);
+        }
+
     }
 }

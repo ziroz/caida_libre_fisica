@@ -9,3 +9,4 @@ C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\
 C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\bin\Debug\Interop.ActiveXScript.xml
 C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida Libre.csprojResolveAssemblyReference.cache
 C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida_Libre.Principal.resources
+C:\Users\Ciro\Documents\Visual Studio 2013\Projects\Caida Libre\Caida Libre\obj\Debug\Caida_Libre.Forms.Resultados.resources
