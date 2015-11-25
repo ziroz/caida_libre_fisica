@@ -9,28 +9,36 @@ namespace Caida_Libre.Operaciones
     public class Tiempo : InterfazDatos
     {
 
-        public string Formula1 = "({0}-{1})/{2}";//0: Vf, 1: Vo, 2: g
+        public string Formula1 = "{0}/{1}";//0: Vf, 1: g
+        public string Formula2 = "sqrt(2*{0}*{1})";//0: h, 1: g
 
-        public decimal VelocidadInicial { get; set; }
-        public decimal VelocidadFinal { get; set; }
-        public decimal gravedad { get; set; }
+        public decimal? VelocidadFinal { get; set; }
+        public decimal? Altura { get; set; }
 
 
-        public Tiempo(decimal Vo, decimal Vf)
+        public Tiempo(decimal? Vf, decimal? h)
         {
-            this.VelocidadInicial = Vo;
             this.VelocidadFinal = Vf;
-
-            this.gravedad = (this.VelocidadInicial != 0 ? -1 : 1) * Constantes.GRAVEDAD;
+            this.Altura = Vf;
             Calcular();
         }
 
         public void Calcular()
         {
-            string operacion = Formula1.FormatoExpresion(this.VelocidadFinal, this.VelocidadInicial, this.gravedad);
+            string operacion = "";
+            if (VelocidadFinal.HasValue)
+            {
+                operacion = Formula1.FormatoExpresion(this.VelocidadFinal, Constantes.GRAVEDAD);
+            }
+            else
+                if (Altura.HasValue)
+                {
+                    operacion = Formula2.FormatoExpresion(this.Altura, Constantes.GRAVEDAD);
+                }
 
             Resultado = operacion.EvaluarExpresion().ToDecimal();
         }
+
         public decimal Resultado { get; set; }
 
     }

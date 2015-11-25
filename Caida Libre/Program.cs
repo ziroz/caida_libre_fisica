@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Microsoft.JScript.Vsa;
 using Microsoft.JScript;
 using Caida_Libre.Operaciones;
+using Caida_Libre.Forms;
 
 namespace Caida_Libre
 {

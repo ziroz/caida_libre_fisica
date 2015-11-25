@@ -17,6 +17,8 @@ namespace Caida_Libre
         Dictionary<string, List<Control>> controles = new Dictionary<string, List<Control>>();
         Dictionary<string, List<Control>> opciones = new Dictionary<string, List<Control>>();
 
+        decimal _velocidadFinal, _velocidadInicial, _tiempo, _altura, _alturaFinal;
+
         Dictionary<string, string> incognitas = new Dictionary<string, string>()
         {
             { "", "Seleccione" },
@@ -262,9 +264,9 @@ namespace Caida_Libre
                 }
             }
 
-            //Resultados result = new Resultados();
+            Resultados result = new Resultados();
 
-            //result.ShowDialog(this);
+            result.ShowDialog(this);
         }
 
         private void IncognitaTiempo(string filtro)
@@ -276,14 +278,13 @@ namespace Caida_Libre
             if (!Utilidades.TryParse(txtVelocidadInicial.Text, out velocidadInicial)
                 || !Utilidades.TryParse(txtVelocidadFinal.Text, out velocidadFinal))
             {
-
                 MessageBox.Show("Información Incorrecta, por favor verifique", "Información Incorreta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            var objTiempo = new Tiempo(velocidadInicial, velocidadFinal);
-
-            lblResultado.Text = "Tiempo = " + objTiempo.Resultado;
+            CargarInformacion(velocidadInicial, null, velocidadFinal, null, Incognitas.Tiempo, null);
+            CalcularRestante(Incognitas.Altura);
+            lblResultado.Text = "Tiempo = " + _tiempo;
         }
 
         private void IncognitaAltura(string filtro)
@@ -301,9 +302,10 @@ namespace Caida_Libre
                     return;
                 }
 
-                var objAltura = new Altura(velocidadInicial, null, velocidadFinal);
+                CargarInformacion(velocidadInicial, null, velocidadFinal, null, Incognitas.Altura, null);
+                CalcularRestante(Incognitas.Tiempo);
+                lblResultado.Text = "Altura = " + _altura;
 
-                lblResultado.Text = "Altura = " + objAltura.Resultado;
             }
             else
                 if (filtro == "h2")
@@ -319,8 +321,10 @@ namespace Caida_Libre
                         return;
                     }
 
-                    var objAltura = new Altura(velocidadInicial, tiempo);
-                    lblResultado.Text = "Altura = " + objAltura.Resultado;
+                    CargarInformacion(velocidadInicial, tiempo, null, null, Incognitas.Altura, null);
+                    CalcularRestante(Incognitas.VelocidadFinal);
+                    lblResultado.Text = "Altura = " + _altura;
+
                 }
         }
 
@@ -339,8 +343,11 @@ namespace Caida_Libre
                     return;
                 }
 
-                var objVelInicial = new VelocidadInicial(velocidadFinal, tiempo, null);
-                lblResultado.Text = "Velocidad Inicial = " + objVelInicial.Resultado;
+                CargarInformacion(null, tiempo, velocidadFinal, null, Incognitas.VelocidadInicial, null);
+                CalcularRestante(Incognitas.Altura);
+
+                lblResultado.Text = "Velocidad Inicial = " + _velocidadInicial;
+
             }
             else
                 if (filtro == "Vo2")
@@ -353,11 +360,17 @@ namespace Caida_Libre
                         MessageBox.Show("Información Incorrecta, por favor verifique", "Información Incorreta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-
+                    //¡¡¡¡¡¡¡¡¡¡¡¡
                     var objVelInicial = new VelocidadInicial(altura);
                     lblResultado.Text = "Velocidad Inicial = " + objVelInicial.Resultado;
-                }
 
+                    /*
+                    _velocidadInicial = objVelInicial.Resultado;
+                    _altura = altura;
+                    _tiempo = new Tiempo(_velocidadFinal;
+                    _velocidadFinal = new VelocidadFinal(_velocidadInicial, ;
+                    */
+                }
                 else
                     if (filtro == "Vo3")
                     {
@@ -374,8 +387,10 @@ namespace Caida_Libre
                             return;
                         }
 
-                        var objVelInicial = new VelocidadInicial(velocidadFinal, altura, alturaFinal);
-                        lblResultado.Text = "Velocidad Inicial = " + objVelInicial.Resultado;
+                        CargarInformacion(null, null, velocidadFinal, altura, Incognitas.VelocidadInicial, alturaFinal);
+                        CalcularRestante(Incognitas.Tiempo);
+
+                        lblResultado.Text = "Velocidad Inicial = " + _velocidadInicial;
                     }
         }
 
@@ -395,8 +410,11 @@ namespace Caida_Libre
                     return;
                 }
 
-                var objVelFinal = new VelocidadFinal(velocidadInicial, null, altura, null);
-                lblResultado.Text = "Velocidad Final = " + objVelFinal.Resultado;
+                CargarInformacion(velocidadInicial, null, null, altura, Incognitas.VelocidadFinal);
+                CalcularRestante(Incognitas.Tiempo);
+
+                lblResultado.Text = "Velocidad Final = " + _velocidadFinal;
+
             }
             else
                 if (filtro == "Vf2")
@@ -413,8 +431,9 @@ namespace Caida_Libre
                         return;
                     }
 
-                    var objVelFinal = new VelocidadFinal(velocidadInicial, tiempo);
-                    lblResultado.Text = "Velocidad Final = " + objVelFinal.Resultado;
+                    CargarInformacion(velocidadInicial, tiempo, null, null, Incognitas.VelocidadFinal);
+                    CalcularRestante(Incognitas.Altura);
+                    lblResultado.Text = "Velocidad Final = " + _velocidadFinal;
                 }else
                     if (filtro == "Vf3")
                     {
@@ -432,9 +451,68 @@ namespace Caida_Libre
                             return;
                         }
 
-                        var objVelFinal = new VelocidadFinal(velocidadInicial, null, altura, alturaFinal);
-                        lblResultado.Text = "Velocidad Final = " + objVelFinal.Resultado;
+                        CargarInformacion(velocidadInicial, null, null, altura, Incognitas.VelocidadFinal, alturaFinal);
+                        CalcularRestante(Incognitas.Tiempo);
+                        lblResultado.Text = "Velocidad Final = " + _velocidadFinal;
                     }
+        }
+
+        private void CargarInformacion(decimal? velocidadInicial, decimal? tiempo, decimal? velocidadFinal, decimal? altura, Incognitas incognita, decimal? alturaFinal = null)
+        {
+            if (velocidadInicial.HasValue) _velocidadInicial = velocidadInicial.Value;
+            if (velocidadFinal.HasValue) _velocidadFinal = velocidadFinal.Value;
+            if (tiempo.HasValue) _tiempo = tiempo.Value;
+            if (altura.HasValue) _altura = altura.Value;
+            if (alturaFinal.HasValue) _alturaFinal = alturaFinal.Value;
+
+            switch (incognita)
+            {
+                case Incognitas.VelocidadInicial:
+                    var objVelocidadInicial = new VelocidadInicial(_velocidadFinal, _tiempo, _altura, _alturaFinal);
+                    _velocidadInicial = objVelocidadInicial.Resultado;
+                    break;
+
+                case Incognitas.VelocidadFinal:
+                    var objVelocidadFinal = new VelocidadFinal(_velocidadInicial, _tiempo, _altura, _alturaFinal);
+                    _velocidadFinal = objVelocidadFinal.Resultado;
+                    break;
+
+                case Incognitas.Tiempo:
+                    var objTiempo = new Tiempo(_velocidadInicial, _velocidadFinal);
+                    _tiempo = objTiempo.Resultado;
+                    break;
+
+                case Incognitas.Altura:
+                    var objAltura = new Altura(_velocidadInicial, _tiempo, _velocidadFinal);
+                    _altura = objAltura.Resultado;
+                    break;
+            }
+        }
+
+        private void CalcularRestante(Incognitas incognita)
+        {
+            switch (incognita)
+            {
+                case Incognitas.VelocidadInicial:
+                    var objVelocidadInicial = new VelocidadInicial(_velocidadFinal, _tiempo, _altura, _alturaFinal);
+                    _velocidadInicial = objVelocidadInicial.Resultado;
+                    break;
+
+                case Incognitas.VelocidadFinal:
+                    var objVelocidadFinal = new VelocidadFinal(_velocidadInicial, _tiempo, _altura, _alturaFinal);
+                    _velocidadFinal = objVelocidadFinal.Resultado;
+                    break;
+
+                case Incognitas.Tiempo:
+                    var objTiempo = new Tiempo(_velocidadInicial, _velocidadFinal);
+                    _tiempo = objTiempo.Resultado;
+                    break;
+
+                case Incognitas.Altura:
+                    var objAltura = new Altura(_velocidadInicial, _tiempo, _velocidadFinal);
+                    _altura = objAltura.Resultado;
+                    break;
+            }
         }
     }
 }

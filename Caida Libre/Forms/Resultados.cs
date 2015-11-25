@@ -14,11 +14,18 @@ namespace Caida_Libre.Forms
     {
         private decimal Altura { get; set; }
         private decimal VelocidadInicial { get; set; }
+        private decimal VelocidadFinal { get; set; }
+        private decimal Tiempo { get; set; }
 
-        public Resultados()
+        public Resultados(decimal? altura, decimal? velocidadInicial, decimal? velocidadFinal, decimal? tiempo)
         {
             InitializeComponent();
-            Altura = 50;
+
+            this.Altura = altura;
+            this.VelocidadInicial = velocidadInicial;
+            this.VelocidadFinal = velocidadFinal;
+            this.Tiempo = tiempo;
+
             CargarDibujo();
         }
 

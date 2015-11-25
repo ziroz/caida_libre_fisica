@@ -61,11 +61,11 @@
       <DependentUpon>Resultados.cs</DependentUpon>
     </Compile>
     <Compile Include="Libs\Utilidades.cs" />
-    <Compile Include="Operaciones\VelocidadInicial.cs" />
+    <Compile Include="Operaciones\Altura_.cs" />
+    <Compile Include="Operaciones\Incognitas.cs" />
     <Compile Include="Operaciones\VelocidadFinal.cs" />
     <Compile Include="Operaciones\Constantes.cs" />
     <Compile Include="Operaciones\InterfazDatos.cs" />
-    <Compile Include="Operaciones\Altura.cs" />
     <Compile Include="Operaciones\Tiempo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
