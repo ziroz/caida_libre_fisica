@@ -35,7 +35,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tblDatos = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblResultado = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -103,7 +102,7 @@
             this.groupBox3.Controls.Add(this.tblDatos);
             this.groupBox3.Location = new System.Drawing.Point(55, 265);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(330, 131);
+            this.groupBox3.Size = new System.Drawing.Size(330, 98);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos";
@@ -117,7 +116,7 @@
             this.tblDatos.Name = "tblDatos";
             this.tblDatos.RowCount = 1;
             this.tblDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tblDatos.Size = new System.Drawing.Size(278, 77);
+            this.tblDatos.Size = new System.Drawing.Size(278, 44);
             this.tblDatos.TabIndex = 0;
             // 
             // button1
@@ -131,33 +130,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblResultado
-            // 
-            this.lblResultado.AutoSize = true;
-            this.lblResultado.Location = new System.Drawing.Point(55, 452);
-            this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(35, 13);
-            this.lblResultado.TabIndex = 5;
-            this.lblResultado.Text = "label1";
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 490);
-            this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -170,7 +160,6 @@
         private System.Windows.Forms.TableLayoutPanel tblDatos;
         private System.Windows.Forms.TableLayoutPanel tblOpciones;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblResultado;
     }
 }
 

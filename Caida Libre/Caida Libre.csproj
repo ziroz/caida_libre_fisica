@@ -61,7 +61,7 @@
       <DependentUpon>Resultados.cs</DependentUpon>
     </Compile>
     <Compile Include="Libs\Utilidades.cs" />
-    <Compile Include="Operaciones\Altura_.cs" />
+    <Compile Include="Operaciones\Altura.cs" />
     <Compile Include="Operaciones\Incognitas.cs" />
     <Compile Include="Operaciones\VelocidadFinal.cs" />
     <Compile Include="Operaciones\Constantes.cs" />
@@ -83,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -100,6 +101,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Imagenes\Formulas\Altura 1.png" />
+    <Content Include="bin\Debug\Imagenes\Formulas\Altura 2.png" />
+    <Content Include="bin\Debug\Imagenes\Formulas\Tiempo 1.png" />
+    <Content Include="bin\Debug\Imagenes\Formulas\Tiempo 2.png" />
+    <Content Include="bin\Debug\Imagenes\Formulas\Velocidad Final 1.png" />
+    <Content Include="bin\Debug\Imagenes\Formulas\Velocidad Final 2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

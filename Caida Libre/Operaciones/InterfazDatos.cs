@@ -10,5 +10,6 @@ namespace Caida_Libre.Operaciones
     {
         void Calcular();
         decimal Resultado { get; set; }
+        int NumeroFormula { get; set; }
     }
 }
